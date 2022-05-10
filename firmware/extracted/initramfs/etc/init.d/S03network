@@ -1,0 +1,52 @@
+#!/bin/sh
+
+#if [ -b /dev/mmcblk0p1 ]; then
+#	echo "!!!!!!!!!!!!!! insmod driver from SDcard !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+#	/sbin/insmod  /sdcard/lib/modules/compat.ko
+#	/sbin/insmod  /sdcard/lib/modules/cfg80211.ko
+#	/sbin/insmod  /sdcard/lib/modules/ath6kl_usb.ko reg_domain=0x8348
+#else
+#	echo "!!!!!!!!!!!!!! insmod driver from Local Rootfs !!!!!!!!!!!!!!!!!!!!!!!!!!!"
+#	/sbin/insmod  /lib/modules/compat.ko
+#	/sbin/insmod  /lib/modules/cfg80211.ko
+#	/sbin/insmod  /lib/modules/ath6kl_usb.ko reg_domain=0x8348
+#fi
+/sbin/insmod  /lib/modules/compat.ko
+/sbin/insmod  /lib/modules/cfg80211.ko
+/sbin/insmod  /lib/modules/ath6kl_usb.ko reg_domain=0x8348
+
+sleep 0.1
+#/sbin/ifconfig wlan0 up
+/sbin/ifconfig wlan0 172.16.11.1 netmask 255.255.255.0
+sleep 0.3
+
+#echo 102400 > /proc/sys/net/ipv4/tcp_max_syn_backlog
+#/etc/hostapd -B /app/rtl_hostapd_5G.conf &
+#mkdir -p /var/lib/misc/
+#touch /var/lib/misc/udhcpd.leases
+#/sbin/udhcpd /etc/udhcpd.conf &
+
+#MAX_VALUE=`ifconfig | grep wlan0 | awk -F"[:]" '{ print $6$7}'`
+#echo $MAX_VALUE
+#WIFI_NAME=`cat /app/config.xml  | grep ApSsid | awk -F"[<>]" '{ print $3}'`
+#echo $WIFI_NAME
+#SSID_NAME=$WIFI_NAME$MAX_VALUE
+#echo $SSID_NAME
+
+#CHANNEL=`cat /app/config.xml  | grep Channel | awk -F"[<>]" '{ print $3}'`
+#echo $CHANNEL
+
+#/bin/sed -i s/^ssid.*/ssid=$SSID_NAME/g /app/rtl_hostapd_5G.conf
+#/bin/sed -i s/^channel.*/channel=$CHANNEL/g /app/rtl_hostapd_5G.conf
+#sleep 1
+
+#/bin/login
+#/app/hostapd -B /app/rtl_hostapd_5G.conf &
+#mkdir -p /var/lib/misc/
+#touch /var/lib/misc/udhcpd.leases
+#/sbin/udhcpd /etc/udhcpd.conf &
+
+#/sdcard/wpa_supplicant -iwlan0 -Dnl80211 -c /sdcard/wpa_supplicant.conf &
+#sleep 0.1
+#udhcpc -i wlan0 -s /usr/share/udhcpc/default.script &
+

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+FOLDER=/autorun
+SCRIPT=autorun.sh
+
+if [ -d $FOLDER ]; then
+  cd $FOLDER
+  if [ -f $SCRIPT ]; then
+    if [ -x $SCRIPT ]; then
+      ./$SCRIPT
+    fi
+  fi
+fi
+

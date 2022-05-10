@@ -1,0 +1,84 @@
+#!/bin/sh
+i=0
+partition_num=$(cat /proc/cmdline | awk '{for (i=1; i<=NF; i++) {if ($i ~ /appmtd=/) print $i} }' | awk -F '=' '{print $2}')
+
+if [ -z "$partition_num" ];then
+  partition_num=4
+fi
+partition=/dev/mtdblock$partition_num
+
+if [ ! -e $partition ];then
+  echo "   $partition does not exist !"
+  exit 1
+fi
+
+mkdir -p /app
+mount -t jffs2 $partition /app &> /dev/null
+if [ $? -ne 0 ];then
+  echo "    mount $partition FAILED"
+else
+  echo "    mount $partition -> /app"
+fi
+
+/bin/echo /sbin/mdev > /proc/sys/kernel/hotplug
+
+echo 0 > /sys/class/gpio/export
+echo out > /sys/class/gpio/GPIO0/direction
+echo 1 > /sys/class/gpio/GPIO0/value
+
+if [ -b /dev/mmcblk0p1 ]; then
+        mount /dev/mmcblk0p1 /sdcard
+        echo "first mount SD ok----"
+
+fi
+if [ -f /sdcard/log_app ];then
+        cp /sdcard/log_app /app/
+        if [ $? -ne 0 ]; then
+                echo "failed"
+        else
+                echo "succeed"
+                while [ $i -le 5 ]
+                do
+                        i=$(( $i + 1 ))
+                        echo 1 > /sys/class/gpio/GPIO0/value
+                        sleep 0.1
+                        echo 0 > /sys/class/gpio/GPIO0/value
+                        sleep 0.1
+                done
+		chmod 777 /app/log_app
+        fi
+fi
+
+customerid=`cat /app/config.xml | /app/grep UserID | awk -F"[<>]" '{ print $3}'`
+echo "$customerid"
+let "customerid=customerid>>20"
+let "customerid=customerid&0xff"
+
+
+if [ "$customerid" == "2" ];then
+	if [ -b /dev/mmcblk0p1 ]; then
+		if [ ! -d /sdcard/PHOTO ]; then 
+			mkdir -p /sdcard/PHOTO
+                fi
+		if [ ! -d /sdcard/VIDEO ]; then
+                	mkdir -p /sdcard/VIDEO 
+                fi
+        fi
+else
+       	if [ -b /dev/mmcblk0p1 ]; then
+		if [ ! -d /sdcard/WiFi-FPV ]; then
+          		mkdir -p /sdcard/WiFi-FPV
+                fi
+                if [ ! -d /sdcard/WiFi-FPV/PHOTO ]; then
+			mkdir -p /sdcard/WiFi-FPV/PHOTO
+		fi
+		if [ ! -d /sdcard/WiFi-FPV/VIDEO ]; then
+			mkdir -p /sdcard/WiFi-FPV/VIDEO
+		fi
+	fi
+fi
+
+
+echo 8 > /proc/sys/kernel/printk
+#echo 'mux,UART1,UART1_TX,1' > /proc/driver/pinctrl
+#echo 'mux,UART1,UART1_RX,1' > /proc/driver/pinctrl

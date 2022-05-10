@@ -1,0 +1,12 @@
+PATH=/usr/bin:/usr/sbin:/bin:/sbin:/app:
+PS1='[$USER@LOGIC]# '
+TMOUT=100
+#PS1='fh-linux# '
+
+if [ ! -e /home/shellpid ];then
+  echo "1" > /home/shellpid
+  if [ -e /app/test.sh ];then
+    cd /app
+    ./test.sh
+  fi
+fi

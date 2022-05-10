@@ -1,0 +1,344 @@
+U-Boot 2010.06 (Sep 23 2019 - 16:03:25)
+
+DRAM:  128 MiB
+SF: Got idcode c2 20 17 c2 20
+spi_flash_probe_macronix multi wire open flag is 0
+In:    serial
+Out:   serial
+Err:   serial
+MMC:   FH_MMC: 0
+MID:0x0 RBlock:512 WBlock:512 Chip:256001MB Name:"APPSD"
+SD:   Ver:2.0 High Capacity Speed:25000000Hz Bus Width:1bit
+Net:   set to RMII
+FH EMAC
+SF: Got idcode c2 20 17 c2 20
+spi_flash_probe_macronix multi wire open flag is 0
+8192 KiB MX25L6405D at 0:0 is now current device
+
+** Unable to use mmc fatload **
+sdcard ok
+do_fat_read UPDATA.bin fail 
+no fs_updatafile
+do_fat_read UPDATA_ALL.bin fail 
+no all_updatafile
+Hit any key to stop autoboot:  0 
+SF: Got idcode c2 20 17 c2 20
+spi_flash_probe_macronix multi wire open flag is 0
+8192 KiB MX25L6405D at 0:0 is now current device
+## Booting kernel from Legacy Image at a1000000 ...
+   Image Name:   Linux-3.0.8
+   Created:      2020-05-14  10:45:40 UTC
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    4775664 Bytes = 4.6 MiB
+   Load Address: a0008000
+   Entry Point:  a0008000
+   Verifying Checksum ... OK
+   Loading Kernel Image ... OK
+OK
+prepare atags
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Linux version 3.0.8 (root@localhost.localdomain) (gcc version 4.3.2 (crosstool-NG 1.190
+[    0.000000] CPU: ARMv6-compatible processor [410fb767] revision 7 (ARMv7), cr=00c5387f
+[    0.000000] CPU: VIPT nonaliasing data cache, VIPT nonaliasing instruction cache
+[    0.000000] Machine: FH8852
+[    0.000000] Memory policy: ECC disabled, Data cache writeback
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 11176
+[    0.000000] Kernel command line: console=ttyS0,115200 mem=44M root=/dev/mtdblock4 rootfstype=jffs2)
+[    0.000000] PID hash table entries: 256 (order: -2, 1024 bytes)
+[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Memory: 44MB = 44MB total
+[    0.000000] Memory: 37780k/37780k available, 7276k reserved, 0K highmem
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
+[    0.000000]     vmalloc : 0xc3000000 - 0xfe000000   ( 944 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xc2c00000   (  44 MB)
+[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+[    0.000000]       .init : 0xc0008000 - 0xc02c8000   (2816 kB)
+[    0.000000]       .text : 0xc02c8000 - 0xc065f000   (3676 kB)
+[    0.000000]       .data : 0xc0660000 - 0xc0680c80   ( 132 kB)
+[    0.000000]        .bss : 0xc0680ca4 - 0xc06ab17c   ( 170 kB)
+[    0.000000] SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS:128
+[    0.000000] timer mult: 0xfa000000, timer shift: 0x16
+[    0.000000] sched_clock: 32 bits at 1000kHz, resolution 1000ns, wraps every 4294967ms
+[    0.000000] Console: colour dummy device 80x30
+[    0.000000] console [ttyS0] enabled
+[    0.178977] Calibrating delay loop... 597.60 BogoMIPS (lpj=2988032)
+[    0.240036] pid_max: default: 32768 minimum: 301
+[    0.244642] Mount-cache hash table entries: 512
+[    0.249385] CPU: Testing write buffer coherency: ok
+[    0.254546] devtmpfs: initialized
+[    0.259743] NET: Registered protocol family 16
+[    0.264408] FH8856 board init
+[    0.332533] bio: create slab <bio-0> at 0
+[    0.336583] fh_dmac fh_dmac.0: FH DMA Controller, 6 channels
+[    0.341847] usbcore: registered new interface driver usbfs
+[    0.345480] usbcore: registered new interface driver hub
+[    0.350659] usbcore: registered new device driver usb
+[    0.358351] Switching to clocksource fh_clocksource
+[    0.370109] Switched to NOHz mode on CPU #0
+[    0.398820] NET: Registered protocol family 2
+[    0.400484] IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.407524] TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.414291] TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.420522] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.426768] TCP reno registered
+[    0.429883] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.435682] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.442219] NET: Registered protocol family 1
+[    0.446719] RPC: Registered named UNIX socket transport module.
+[    0.452075] RPC: Registered udp transport module.
+[    0.456797] RPC: Registered tcp transport module.
+[    0.461439] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    1.140066] JFFS2 version 2.2. (NAND) �© 2001-2006 Red Hat, Inc.
+[    1.152550] exFAT: Version 1.2.9
+[    1.157409] msgmni has been set to 73
+[    1.167414] NET: Registered protocol family 38
+[    1.169047] io scheduler noop registered (default)
+[    1.183213] fh_pwm_probe: clk_rate: 50000000
+[    1.189101] PWM driver, Number: 8, IO base addr: 0xc3078000
+[    1.200681] ttyS.0: ttyS0 at MMIO 0xf0700000 (irq = 30) is a ttyS
+[    1.208869] ttyS.1: ttyS1 at MMIO 0xf0800000 (irq = 31) is a ttyS
+[    1.230132] brd: module loaded
+[    1.264728] CLK misc driver init successfully
+[    1.297268] m25p80 spi0.0: found mx25l6405d, expected m25p80
+[    1.304098] m25p80 spi0.0: mx25l6405d (8192 Kbytes)
+[    1.306377] DEBUG-CMDLINE-PART: parsing <256k(bootstrap),64k(uboot-env),256k(uboot),5120k(kernel),>
+[    1.317472] DEBUG-CMDLINE-PART: partition 4: name <rootfs>, offset ffffffff, size 260000, mask fla0
+[    1.327612] DEBUG-CMDLINE-PART: partition 3: name <kernel>, offset ffffffff, size 500000, mask fla0
+[    1.337781] DEBUG-CMDLINE-PART: partition 2: name <uboot>, offset ffffffff, size 40000, mask flags0
+[    1.347775] DEBUG-CMDLINE-PART: partition 1: name <uboot-env>, offset ffffffff, size 10000, mask f0
+[    1.358119] DEBUG-CMDLINE-PART: partition 0: name <bootstrap>, offset ffffffff, size 40000, mask f0
+[    1.368492] DEBUG-CMDLINE-PART: mtdid=<spi_flash> num_parts=<5>
+[    1.374949] 5 cmdlinepart partitions found on MTD device spi_flash
+[    1.381684] Creating 5 MTD partitions on "spi_flash":
+[    1.387232] 0x000000000000-0x000000040000 : "bootstrap"
+[    1.407195] 0x000000040000-0x000000050000 : "uboot-env"
+[    1.427807] 0x000000050000-0x000000090000 : "uboot"
+[    1.447382] 0x000000090000-0x000000590000 : "kernel"
+[    1.468353] 0x000000590000-0x0000007f0000 : "rootfs"
+[    1.518723] console [netcon0] enabled
+[    1.519608] netconsole: network logging started
+[    1.528520] resource: start=e0700000, len=00100000
+[    1.530705] base=0xc3200000 (after adjust) 
+[    1.535270] fh_otg_driver_probe: mapped PA 0xe0700000 to VA 0xc3200000
+[    1.763941] Core Release: 4.00a
+[    1.764265] Setting default values for core params
+[    1.969142] dma_enable :1
+[    1.969168] dma_desc_enable :1
+[    2.171902] Using Descriptor DMA mode
+[    2.172793] Periodic Transfer Interrupt Enhancement - disabled
+[    2.179166] Multiprocessor Interrupt Enhancement - disabled
+[    2.185243] OTG VER PARAM: 0, OTG VER FLAG: 0
+[    2.190025] FH OTG HCD INIT (c1fc42c0)
+[    2.194113] hcd regs before base(c3200000)
+[    2.198600] fh_otg fh_otg: FH OTG Controller
+[    2.203388] fh_otg fh_otg: new USB bus registered, assigned bus number 1
+[    2.210620] ______ here 21 reg=c3200000 addr= c1f4b100
+[    2.216151] fh_otg fh_otg: irq 27, io mem 0x00000000
+[    2.221611] Init: Power Port (0)
+[    2.225231] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    2.232532] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.240376] usb usb1: Product: FH OTG Controller
+[    2.245435] usb usb1: Manufacturer: Linux 3.0.8 fh_otg_hcd
+[    2.251418] usb usb1: SerialNumber: fh_otg
+[    2.261462] hub 1-0:1.0: USB hub found
+[    2.262472] hub 1-0:1.0: 1 port detected
+[    2.302062] rtc core busy can't get time
+[    2.303277] rtc get time:rtc core busy 310
+[    2.315856] fh_rtc fh_rtc.0: rtc core: registered rtc as rtc0
+[    2.323571] i2c /dev entries driver
+[    2.328966] I2C driver:
+[    2.328982]  platform registration... 
+[    2.332536]  Clock: 50000khz, Standard-mode HCNT:LCNT = 212:249
+[    2.339099]  tx fifo depth: 16, rx fifo depth: 16
+[    2.352225]  I2C - (dev. name: fh_i2c - id: 0, IRQ #11
+[    2.352240]          IO base addr: 0xc30b8000)
+[    2.358966] I2C driver:
+[    2.358977]  platform registration... 
+[    2.365586]  Clock: 50000khz, Standard-mode HCNT:LCNT = 212:249
+[    2.372173]  tx fifo depth: 16, rx fifo depth: 16
+[    2.394045]  I2C - (dev. name: fh_i2c - id: 1, IRQ #12
+[    2.394060]          IO base addr: 0xc30c0000)
+[    2.442274] TCP cubic registered
+[    2.442695] NET: Registered protocol family 17
+[    2.447676] lib80211: common routines for IEEE802.11 drivers
+[    2.453782] Registering the dns_resolver key type
+[    2.458909] VFP support v0.3: implementor 41 architecture 1 part 20 variant b rev 5
+[    2.472095] Indeed it is in host mode hprt0 = 00021501
+[    2.571064] GMAC driver:
+[    2.571080]  platform registration... 
+[    2.574765]  using random MAC address: de:f9:c9:2c:a6:49
+[    2.586820] fh_gmac fh_gmac.0: eth0: mixed HW and IP checksum settings.
+[    2.590951] fh_gmac fh_gmac.0: eth0: mixed no checksumming and other settings.
+[    2.599059]  eth0 - (dev. name: fh_gmac - id: 0, IRQ #15
+[    2.599074]          IO base addr: 0xc30e0000)
+[    2.620605] fh rtc get time error
+[    2.621152] fh_rtc fh_rtc.0: setting system clock to 2059-09-19 08:04:03 UTC (2831184243)
+[    2.643267] aes driver registered
+[    2.647771] Freeing init memory: 2816K
+[    2.660560] usb 1-1: new high speed USB device number 2 using fh_otg
+[    2.666389] Indeed it is in host mode hprt0 = 00001101
+starting pid 475, tty '': '/etc/init.d/rcS'
+[    2.729957] mmc0: new high speed SDXC card at address 21f7
+[    2.743173] mmcblk0: mmc0:21f7 APPSD 250 GiB 
+[    2.752252]  mmcblk0: unknown partition table
+[    2.763237] card1 disconnected!
+[RCS]: /etc/init.d/S01udev
+Starting udev:      [ OK ]
+[RCS]: /etc/init.d/S02init_rootfs
+    mount /dev/mtdblock4 -> /app
+1050625
+[RCS]: /etc/init.d/S03network
+[    3.461805] Calling CRDA to update world regulatory domain
+[    3.473369] World regulatory domain updated:
+[    3.474846]     (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp)
+[    3.482268]     (2402000 KHz - 2472000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[    3.489233]     (2457000 KHz - 2482000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[    3.496250]     (2474000 KHz - 2494000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[    3.503246]     (5170000 KHz - 5250000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[    3.510224]     (5735000 KHz - 5835000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[    3.581811] ath6kl_usb 1-1:1.0: usb_probe_interface
+[    3.583862] ath6kl_usb 1-1:1.0: usb_probe_interface - got id
+[    3.589668] <6>ath6kl: 3VAP/1, P2P enable, concurrent on , with dedicate p2p-device, multi-channele
+[    3.614769] <6>ath6kl: target bootstrap: 0x00000810
+[    3.616852] AR1022 use dual band board data
+[    3.620959] <6>ath6kl: target's subtype is 0x7, HT20/40 2SS Dual-band
+[    3.656837] <6>ath6kl: Create HTC cookie, type 1 num 440
+[    3.659411] <6>ath6kl: Create HTC cookie, type 2 num 66
+[    3.664524] <6>ath6kl: P2P flowctrl enabled
+[    3.668634] <6>ath6kl: RX aggregation drop disabled
+[    3.673494] <6>ath6kl: Using driver's regdb.
+[    3.677719] <6>ath6kl: Firmware recovery mode cold
+[    3.962954] Calling CRDA for country: US
+[    3.965493] <6>ath6kl: ar6004 hw 3.0 usb fw 5.0.0.110
+[    3.973142] <6>ath6kl: Wait defer tasks done...
+[    3.975523] Regulatory domain changed to country: US
+[    3.979804]     (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp)
+[    3.987220]     (2402000 KHz - 2472000 KHz @ 40000 KHz), (300 mBi, 2700 mBm)
+[    3.994208]     (5170000 KHz - 5250000 KHz @ 40000 KHz), (300 mBi, 1700 mBm)
+[    4.001203]     (5250000 KHz - 5330000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[    4.008182]     (5490000 KHz - 5600000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[    4.015197]     (5650000 KHz - 5710000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[    4.022195]     (5735000 KHz - 5835000 KHz @ 40000 KHz), (300 mBi, 3000 mBm)
+[    4.029341] <6>ath6kl: Create dedicated p2p interface
+[    4.068446] usbcore: registered new interface driver ath6kl_usb
+[RCS]: /etc/init.d/S04video
+[    4.570128] Video Memory Manager
+[    4.570544] media_mem_parse_cmdline: s=anonymous,0,0xA2C00000,84864K.
+[    4.576906] media_mem_parse_cmdline: i=4.
+[    4.580950] vmm:anonymous,a2c00000,52e0000.
+[    4.630804] load /lib/modules/rtthread_arc_FH8856.bin at 0xa7f00000, set ring buffer at 0xa7e000000
+[    4.638554] get irq offset: 0
+[    4.646872] chn0 dev nr: 252
+[    4.661431] VBus loaded: 255 in blocks, 255 out blocks
+[    4.663711] VBUS driver loaded.
+[    4.666825] VBUS load /lib/modules/rtthread_arc_FH8856.bin for rtvbus
+[    4.697945] firmware: /lib/modules/rtthread_arc_FH8856.bin loaded
+[    4.701351] firmware: /lib/modules/rtthread_arc_FH8856.bin started
+[    4.707325] ARC is running.
+[    4.733468] media_process: module license 'Proprietary' taints kernel.
+[    4.737193] Disabling lock debugging due to kernel taint
+[    4.769442] [MEDIA]media_process_module_init 268: media process init success!!
+[    4.796178] module->phys_addr=0xe8400000  module->virt_addr=0xc3600000 
+[    4.799958]  isp - (dev. name: ispp - IRQ #7
+[    4.799970]          IO base addr: 0xc3600000)
+[    4.808082] module->phys_addr=0xe8500000  module->virt_addr=0xc3800000 
+[    4.814574]  isp - (dev. name: ispf - IRQ #8
+[    4.814586]          IO base addr: 0xc3800000)
+[    4.822597] 
+[    4.822605]  stat buffer size: 67KBytes
+[    4.857013] [VPU]vpu_parse_cmdline 349: VPU Revc Command: buf_0_2,buf_1_2,cap_0_3840_2160,cap_1_120
+[    4.863625] [VPU]vpu_parse_cmdline 638: set command success! (buf)
+[    4.869767] [VPU]vpu_parse_cmdline 638: set command success! (buf)
+[    4.875901] [VPU]vpu_parse_cmdline 638: set command success! (cap)
+[    4.882053] [VPU]vpu_parse_cmdline 638: set command success! (cap)
+[    4.888212] [VPU]vpu_module_init 675: vpu init success!!
+[    4.928581] [ENC]pae_cpu_reset 40: [PAE]---RESET PAE---
+[    4.965161] [ENC]pae_load_firmware 34: START LOAD ENC FIRMWARE V2 ...
+[    4.968822] [ENC]pae_load_firmware 37: LOAD ENC FIRMWARE FINISH!
+[    4.974710] [ENC]pae_module_init 327: PAE init success!
+[    5.007203] [JPEG]jpeg_module_init 190: JPEG init success!
+[    5.039781] [BGM]bgm_module_init 466: bgm init success!!
+[    5.061374] ACW_VBUS version:                V1.1.0-RC3(ga6aaaaa)
+[    5.082343] [VPU]vpu_parse_cmdline 349: VPU Revc Command: support4k_on
+[    5.086086] [VPU]vpu_parse_cmdline 638: set command success! (support4k)
+[    5.096422] [VPU]vpu_parse_cmdline 349: VPU Revc Command: sublimit_off
+[    5.100097] [VPU]vpu_parse_cmdline 638: set command success! (sublimit)
+read file ok
+date -s '2022-04-24 25:45:30'
+Mon Apr 25 01:45:30 CST 2022
+current chahnel = 36 , ssid = HolyStoneFPV_29e53dD
+ret = 17
+mac = 29e53d
+tmpname = HolySton[    5.288946] clk cis_clk_out enabled
+[    5.292482] [MEDIA]fh_media_open 103: media_process open success.
+[    5.298113] [ENC]pae_enc_isr 3194: [PAE]---PAE RUN!!---
+eFPV_29e53d
+Name: HolyStoneFPV_29e53dD 
+dsp version:            V1.1.0-RC3(g90cc344)
+[    5.313204] [ENC]pae_open 69: pae open success!
+[    5.315149] [JPEG]jpeg_open 35: jpeg open success.
+[    5.319798] [VPU]vpu_open 492: vpu open success.
+[    5.324393] [BGM]bgm_open 300: bgm open success.
+[    5.329091] remap_pfn_range start~end: 0x4005b000 0x4009b000, pyh:0xa2c00 , nocached.
+[    5.338110] remap_pfn_range start~end: 0x40273000 0x41ad4000, pyh:0xa2c40 , nocached.
+[    5.345501] remap_pfn_range start~end: 0x41b51000 0x41e04000, pyh:0xa44a1 , nocached.
+[    5.352640] remap_pfn_range start~end: 0x41ee4000 0x422ff000, pyh:0xa4754 , nocached.
+[    5.360280] [MEDIA]check_dst_chan 455: [unlegality chan]:chan 1 0x0 0 0
+[    5.366472] [MEDIA]check_dst_chan 455: [unlegality chan]:chan 5 0x0 0 0
+[    5.373927] remap_pfn_range start~end: 0x423f9000 0x432ff000, pyh:0xa4b6f , nocached.
+[    5.381142] [MEDIA]check_dst_chan 455: [unlegality chan]:chan 7 0x0 0 0
+[    5.387479] [MEDIA]check_dst_chan 455: [unlegality chan]:chan 2 0x0 0 0
+[    5.394192] remap_pfn_range start~end: 0x433c7000 0x435b6000, pyh:0xa5a75 , nocached.
+[    5.401934] [MEDIA]check_dst_chan 455: [unlegality chan]:chan 8 0x0 0 0
+[    5.408633] remap_pfn_range start~end: 0x436a9000 0x43a9e000, pyh:0xa5c64 , nocached.
+[    5.417897] remap_pfn_range start~end: 0x43afc000 0x4578c000, pyh:0xa6060 , nocached.
+main CBR------------------------------------
+main CBR------------------------------------
+isp version:            V1.1.0.P18(g90f395a)
+ispcore version:        V1.1.0.P18(g90f395a)
+ADV_ISP version:                V1.1.0.P7(g18a5e65)
+ERROR: Unable to read sensor register!: Remote I/O error
+ERROR: Unable to read sensor register!: Remote I/O error
+probe sensor: gc4653_mipi
+ERROR: Unable to read sensor register!: Remote I/O error
+ERROR: Unable to read sensor register!: Remote I/O error
+mipi version:           V1.1.0-RC3(gdae664b)
+Change chan[0] resolution to 2560 x 1440 @ 25fps-20971520bps-25gop 
+
+change CBR------------------------------------
+[DEBUG] <log_init_serial : 116> uart open ok
+[DEBUG] <log_set_uart : 109> set done!
+{HolyStoneFPV_29e53dD}
+dbi version:            V1.1.0-RC3(gdae664b)
+read file ok
+read file ok
+read file ok
+read file ok
+read file ok
+read file ok
+read file ok
+read file ok
+read file ok
+Configuration file: /app/rtl_hostapd_5G.conf
+Using interface wlan0 with hwaddr 38:e2:6e:29:e5:3d and ssid 'HolyStoneFPV_29e53dD'
+read file ok
+[RCS]: /etc/init.d/S99autorun
+*****autorun script*****
+starting pid 734, tty '': '/sbin/inetd -f -e /etc/inetd.conf'
+starting pid 736, tty '': '/sbin/getty -L ttyS0 115200 vt100'
+
+(none) login: read file ok
+read file ok
+read file ok
+read file ok
+read file ok
+read file ok
+

@@ -1,0 +1,63 @@
+#!/bin/sh
+
+set_gpio()
+{
+    if [ ! -d "/sys/class/gpio/GPIO$1" ]; then
+        echo $1 > /sys/class/gpio/export
+        echo out > /sys/class/gpio/GPIO$1/direction
+    fi
+
+    echo $2 > /sys/class/gpio/GPIO$1/value
+}
+
+#insmod /lib/modules/vmm.ko mmz=anonymous,0,0xA2000000,64M anony=1
+#insmod /lib/modules/vmm.ko mmz=anonymous,0,0xA2000000,97152K anony=1
+insmod /lib/modules/vmm.ko mmz=anonymous,0,0xA2C00000,84864K anony=1
+
+#reset sensor
+set_gpio 13 0
+
+/bin/echo /sbin/mdev > /proc/sys/kernel/hotplug
+#mkdir -p /lib/firmware
+#cp rtthread_arc_FH8852.bin /lib/firmware/
+insmod /lib/modules/rtvbus.ko ra=0xa7e00000 rs=65536 fn=/lib/modules/rtthread_arc_FH8856.bin fa=0xa7f00000
+#rm -f /lib/firmware/rtthread_arc_FH8852.bin
+
+#reset sensor
+set_gpio 13 1
+#F23
+#set_gpio 14 0
+#gc4623
+set_gpio 14 1
+insmod /lib/modules/media_process.ko
+insmod /lib/modules/isp.ko
+#insmod /lib/modules/vpu.ko vpu_mode=buf_0_2,buf_1_2,cap_0_1920_1080,cap_1_1280_720
+insmod /lib/modules/vpu.ko vpu_mode=buf_0_2,buf_1_2,cap_0_3840_2160,cap_1_1280_720
+#H.264
+insmod /lib/modules/enc.ko
+#H.265
+#insmod /lib/modules/hevc.ko
+insmod /lib/modules/jpeg.ko
+insmod /lib/modules/bgm.ko
+insmod /lib/modules/vbus_ac.ko
+
+echo support4k_on > /proc/driver/isp
+echo support4k_on > /proc/driver/vpu
+echo ispp_three_buf > /proc/driver/isp
+
+#echo cir_on > /proc/driver/isp
+echo wdr_off > /proc/driver/isp
+#echo ltm_off > /proc/driver/isp
+echo gme_off > /proc/driver/isp
+echo sublimit_off > /proc/driver/isp
+echo sublimit_off > /proc/driver/vpu
+
+cd /app/
+/app/log_app &
+sleep 5
+
+/app/hostapd -B /app/rtl_hostapd_5G.conf
+#/etc/hostapd -B /app/rtl_hostapd_5G.conf &
+#mkdir -p /var/lib/misc/
+#touch /var/lib/misc/udhcpd.leases
+/sbin/udhcpd /etc/udhcpd.conf &
